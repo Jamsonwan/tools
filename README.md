@@ -1,1 +1,1 @@
-# convert matlab functions to java
+# convert some matlab functions to java
