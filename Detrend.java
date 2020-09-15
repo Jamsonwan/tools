@@ -8,20 +8,23 @@ public class Detrend{
 		double mean_x = mean(x);
 		double molecule = 0.0;
 		double sum_pow_x = 0.0;
-	        double sum_x = 0.0;													for(int i=0; i < sig.length; i++) {
+	        double sum_x = 0.0;													
+		for(int i=0; i < sig.length; i++) {
 			molecule += (sig[i] * (x[i] - mean_x));
-			sum_pow_x += (x[i] * x[i]);												sum_x += x[i];
-																	}
-																	double denomintor = sum_pow_x - sum_x * sum_x / x.length;
+			sum_pow_x += (x[i] * x[i]);
+			sum_x += x[i];
+		}
+		double denomintor = sum_pow_x - sum_x * sum_x / x.length;
 		double w = molecule / denomintor;
-																	double b = 0.0;
-		double temp = 0.0;													for(int i=0; i < sig.length; i++) {
+		double b = 0.0;
+		double temp = 0.0;
+		for(int i=0; i < sig.length; i++) {
 			temp += (sig[i] - w*x[i]);
 		}
 		b = temp / sig.length;																												for(int i=0; i < sig.length; i++) {
 			res[i] = sig[i] - (w*i + b);
-																	}
-																	return res;
+		}
+		return res;
 	
 	}
 
